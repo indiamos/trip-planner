@@ -6,16 +6,12 @@ var Hotel = db.define('hotel', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  place: {
-    address: Sequelize.STRING,
-    city: Sequelize.STRING,
-    state: Sequelize.STRING,
-    phone: Sequelize.STRING,
-    location: Sequelize.ARRAY,
-  },
   num_stars: {
     type: Sequelize.FLOAT,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      min: 1, max: 5
+    }
   },
   amenities: {
     type: Sequelize.STRING
@@ -26,18 +22,14 @@ var Restaurant = db.define('restaurant', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  place: {
-    address: Sequelize.STRING,
-    city: Sequelize.STRING,
-    state: Sequelize.STRING,
-    phone: Sequelize.STRING,
-    location: Sequelize.ARRAY,
-  },
   cuisine: {
     type: Sequelize.STRING
   },
   price: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    validate: {
+      min: 1, max: 5
+    }
   }
 }
 
@@ -46,21 +38,36 @@ var Activity = db.define('activity', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  place: {
-    address: Sequelize.STRING,
-    city: Sequelize.STRING,
-    state: Sequelize.STRING,
-    phone: Sequelize.STRING,
-    location: Sequelize.ARRAY
-  },
   age_range: {
     type: Sequelize.STRING
   }
 })
 
+var Place = db.define('place', {
+    address: {
+      type: Sequelize.STRING
+    },
+    city: {
+      type: Sequelize.STRING
+    },
+    state: {
+      type: Sequelize.STRING
+    },
+    phone: {
+      type: Sequelize.STRING
+    },
+    location: {
+      type: Sequelize.ARRAY(Sequelize.FLOAT)}
+  })
+
+Hotel.belongsTo(Place);
+Restaurant.belongsTo(Place);
+Activity.belongsTo(Place);
+
 module.exports = {
   db: db,
   Restaurant: Restaurant,
   Hotel: Hotel,
-  Activity: Activity
+  Activity: Activity,
+  Place: Place
 };
