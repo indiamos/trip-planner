@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost/tripplanner');
+const db = new Sequelize('postgres://localhost/tripplanner', {logging: false});
 
 var Hotel = db.define('hotel', {
   name: {
@@ -15,7 +15,8 @@ var Hotel = db.define('hotel', {
   },
   amenities: {
     type: Sequelize.STRING
-  };
+  }
+});
 
 var Restaurant = db.define('restaurant', {
   name: {
@@ -31,7 +32,7 @@ var Restaurant = db.define('restaurant', {
       min: 1, max: 5
     }
   }
-}
+});
 
 var Activity = db.define('activity', {
   name: {
