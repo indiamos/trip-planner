@@ -1,6 +1,30 @@
 body {
-  /*background-color: deeppink;*/
-}
+  background-color: deeppink; }
 
-li {margin-bottom: 1em;}
-.main {margin-top: 100px;}
+li {
+  margin-bottom: 1em; }
+
+#main {
+  margin-top: 100px;
+  display: flex; }
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%; }
+
+#mapbox {
+  background-color: orange;
+  flex-basis: 60%; }
+
+#placebox {
+  background-color: lightgoldenrodyellow; }
+
+#tripbox {
+  background-color: lightblue; }
+
+#dayheader {
+  background-color: lightgreen; }
+
+#daynav {
+  background-color: blue; }

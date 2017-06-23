@@ -1,30 +1,64 @@
 {% extends "layout.html" %}
 
+
+
 {% block content %}
-  <h1>Our Places</h1>
+
+<div id="mapbox">map placeholder</div>
+
+
+
+<div id="sidebar">
+
+
+<div id="placebox">
+
+
+
 
   <h2>Hotels</h2>
 
-  <ul class="list-unstyled">
+  <select name="hotels">
     {% for hotel in templateHotels %}
-      <li><a href="/hotels/{{hotel.id}}">{{hotel.name}}</a></li>
+      <option value="{{hotel.id}}">{{hotel.name}}</option>
     {% endfor %}
-  </ul>
+  </select>
 
   <h2>Activites</h2>
 
-  <ul class="list-unstyled">
-    {% for activity in templateActivities %}
-      <li><a href="/activities/{{activity.id}}">{{activity.name}}</a></li>
+  <select name="activities">
+   {% for activity in templateActivities %}
+      <option value="{{activity.id}}">{{activity.name}}</option>
     {% endfor %}
-  </ul>
+  </select>
+
 
   <h2>Restaurants</h2>
 
-  <ul class="list-unstyled">
-    {% for restaurant in templateRestaurants %}
-      <li><a href="/restaurants/{{restaurant.id}}">{{restaurant.name}}</a></li>
+  <select name="restaurants">
+   {% for restaurant in templateRestaurants %}
+      <option value="{{restaurant.id}}">{{restaurant.name}}</option>
     {% endfor %}
-  </ul>
+  </select>
+
+
+
+</div>
+
+
+<div id="tripbox">
+
+  <div id="dayheader"> Day ? </div>
+  <div id="daynav"> daynav </div>
+
+  placeholder
+
+</div>
+
+
+</div>
+
+
+
 
 {% endblock %}
