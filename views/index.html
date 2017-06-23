@@ -1,64 +1,46 @@
-{% extends "layout.html" %}
-
-
-
-{% block content %}
-
-<div id="mapbox">map placeholder</div>
-
-
-
+{% extends "layout.html" %} {% block content %}
+<div id="mapbox">
+    <p>map placeholder</p>
+</div>
 <div id="sidebar">
-
-
-<div id="placebox">
-
-
-
-
-  <h2>Hotels</h2>
-
-  <select name="hotels">
-    {% for hotel in templateHotels %}
-      <option value="{{hotel.id}}">{{hotel.name}}</option>
-    {% endfor %}
-  </select>
-
-  <h2>Activites</h2>
-
-  <select name="activities">
-   {% for activity in templateActivities %}
-      <option value="{{activity.id}}">{{activity.name}}</option>
-    {% endfor %}
-  </select>
-
-
-  <h2>Restaurants</h2>
-
-  <select name="restaurants">
-   {% for restaurant in templateRestaurants %}
-      <option value="{{restaurant.id}}">{{restaurant.name}}</option>
-    {% endfor %}
-  </select>
-
-
-
+    <div id="placebox">
+        <h2>Filter the map</h2>
+        <h3>Hotels</h3>
+        <select name="hotels">
+            {% for hotel in templateHotels %}
+            <option value="{{hotel.id}}">{{hotel.name}}</option>
+            {% endfor %}
+        </select>
+        <h3>Activities</h3>
+        <select name="activities">
+            {% for activity in templateActivities %}
+            <option value="{{activity.id}}">{{activity.name}}</option>
+            {% endfor %}
+        </select>
+        <h3>Restaurants</h3>
+        <select name="restaurants">
+            {% for restaurant in templateRestaurants %}
+            <option value="{{restaurant.id}}">{{restaurant.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="tripbox">
+        <div id="dayheader">
+            <h2>Day 1</h2>
+        </div>
+        <div id="daynav">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+        Here's
+        <br />  your
+        <br />    trip
+        <br />      stuff
+    </div>
 </div>
-
-
-<div id="tripbox">
-
-  <div id="dayheader"> Day ? </div>
-  <div id="daynav"> daynav </div>
-
-  placeholder
-
-</div>
-
-
-</div>
-
-
-
-
 {% endblock %}
