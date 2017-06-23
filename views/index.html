@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Trip Planner</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-</head>
-<body>
-  <h1>Welcome!</h1>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1>Our Places</h1>
+
+  <h2>Hotels</h2>
+
+  <ul class="list-unstyled">
+    {% for hotel in templateHotels %}
+      <li><a href="/hotels/{{hotel.id}}">{{hotel.name}}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Activites</h2>
+
+  <ul class="list-unstyled">
+    {% for activity in templateActivities %}
+      <li><a href="/activities/{{activity.id}}">{{activity.name}}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Restaurants</h2>
+
+  <ul class="list-unstyled">
+    {% for restaurant in templateRestaurants %}
+      <li><a href="/restaurants/{{restaurant.id}}">{{restaurant.name}}</a></li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

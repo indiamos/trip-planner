@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const routes = require('./routes');
 const db = require('./models').db;
 const volleyball = require('volleyball');
 const bodyParser = require('body-parser');
@@ -14,6 +15,8 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 nunjucks.configure('views', { noCache: true });
+
+app.use('/', routes);
 
 app.get('/', function(req, res, next) {
   res.render('index');
