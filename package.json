@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:production": "node app.js",
+    "start:dev": "nodemon -e html,css,js app.js",
+    "start": "npm run start:dev",
+    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,7 @@
     "volleyball": "^1.4.1"
   },
   "devDependencies": {
+    "node-sass": "^4.5.3",
     "nodemon": "^1.11.0"
   },
   "repository": {
